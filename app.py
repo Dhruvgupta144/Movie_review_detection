@@ -9,7 +9,7 @@ review = st.text_input('Enter Movie Review:')
 with open("vectorizer.pkl", 'rb') as f:
     vectorizer = pk.load(f)
 
-with open("svc.pkl", 'rb') as f:
+with open("SVC.pkl", 'rb') as f:
     model = pk.load(f)
 
 if st.button('Predict'):
