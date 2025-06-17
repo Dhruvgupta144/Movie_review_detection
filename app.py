@@ -6,10 +6,10 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 st.write("Hello! I am Dhruv gupta and this was my first Machine Learning project :")
 review = st.text_input('Enter Movie Review:')
 
-with open(r'c:\Users\DHRUV GUPTA\Desktop\movie review system\vectorizer.pkl', 'rb') as f:
+with open("vectorizer.pkl", 'rb') as f:
     vectorizer = pk.load(f)
 
-with open(r'c:\Users\DHRUV GUPTA\Desktop\movie review system\SVC.pkl', 'rb') as f:
+with open("svc.pkl", 'rb') as f:
     model = pk.load(f)
 
 if st.button('Predict'):
