@@ -1,24 +1,27 @@
 import pickle as pk
 import streamlit as st
 import base64
+import os
 
-# Load GIF as base64 to embed it in the background
 def get_base64(bin_file):
     with open(bin_file, 'rb') as f:
         data = f.read()
     return base64.b64encode(data).decode()
 
 def set_background(gif_file):
-    bin_str = get_base64(gif_file)
-    page_bg_img = f'''
+    current_dir = os.path.dirname(__file__)
+    file_path = os.path.join(current_dir, gif_file)
+    bin_str = get_base64(file_path)
+    page_bg_img = f"""
     <style>
-    .stApp {{
-      background-image: url("data:image/gif;base64,{bin_str}");
-      background-size: cover;
+    body {{
+    background-image: url("data:image/gif;base64,{bin_str}");
+    background-size: cover;
     }}
     </style>
-    '''
+    """
     st.markdown(page_bg_img, unsafe_allow_html=True)
+
 
 # Set background
 set_background('cinema.gif')
